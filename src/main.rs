@@ -1,4 +1,5 @@
 mod logger;
+mod models;
 
 type StdErr = Box<dyn std::error::Error>;
 

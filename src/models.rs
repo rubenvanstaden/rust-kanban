@@ -1,3 +1,4 @@
+use crate::schema::*;
 
 #[derive(serde::Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -17,8 +18,9 @@ pub struct Card {
     pub created_at: chrono::DateTime<chrono::Utc>,
 }
 
-#[derive(serde::Serialize, serde::Deserialize)]
+#[derive(serde::Serialize, serde::Deserialize, diesel_derive_enum::DbEnum)]
 #[serde(rename_all = "camelCase")]
+#[DieselType = "Status_enum"]
 pub enum Status {
     Todo,
     Doing,
